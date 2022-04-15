@@ -17,27 +17,39 @@ class AdminController extends Controller
     {
         return view('admin.login');
     }
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+ 
+    public function auth(Request $request)
     {
-        //
+        $email = $request->post('email');
+        $password = $request->post('password');
+        $result = Admin::where(['email' => $email, 'password' => $password])->first();
+        if($result){
+        
+        $request->session()->put('ADMIN_LOGIN',true);
+        
+        $request->session()->put('ADMIN_ID',$request->id);
+        return redirect()->route('admin.dashboard');
+
+        }else{
+            $request->session()->flash('error','Please enter valid input');
+           return redirect()->route('admin.login');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    
+        
+        
+    
 
     /**
      * Display the specified resource.
