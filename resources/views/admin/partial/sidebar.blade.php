@@ -9,14 +9,14 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class=" has-sub">
-                            <a href="{{route('admin.login')}}">
+                            <a href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                             
                         </li>
                         <li class=" has-sub">
-                            <a  href="#">
-                                <i class="fas fa-tachometer-alt"></i>Catagory</a>
+                            <a  href="manage_category">
+                                <i class="fas fa-tachometer-alt"></i>Manage Catagory</a>
                             
                         </li>
                     </ul>

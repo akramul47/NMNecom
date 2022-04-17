@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CatagoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,8 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::middleware(['middleware' => 'admin_auth'])->group(function () {
+    Route::get('/admin/manage_category', [CatagoryController::class, 'manage_category']);
+    Route::get('/admin/catagory', [CatagoryController::class, 'category']);
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', function(){
     session()->forget('ADMIN_LOGIN');

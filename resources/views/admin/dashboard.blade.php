@@ -2,7 +2,8 @@
 <html lang="en">
 @include('admin.partial.head')
 
-<body >
+
+<body>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
        @include('admin.partial.headerm')
@@ -20,14 +21,17 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                
+            
+                @yield('content') 
             </div>
+            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
 
+</div>
     <!-- Jquery JS-->
     @include('admin.partial.script')
 
