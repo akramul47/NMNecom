@@ -15,8 +15,18 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware(['middleware' => 'admin_auth'])->group(function () {
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/logout', function(){
+    session()->forget('ADMIN_LOGIN');
+    session()->forget('ADMIN_ID');
+    session()->flash('error','Logout Sucessfully');
+    return redirect('login');
+
+    });
 });
 
 Route::post('/admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 
+Route::any('users/{id}', function ($id) {
+    
+});
