@@ -13,8 +13,10 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+Route::middleware(['middleware' => 'admin_auth'])->group(function () {
+    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+});
 
-Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 Route::post('/admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 Route::get('/login',[AdminController::class,'index'])->name('admin.login');
 
