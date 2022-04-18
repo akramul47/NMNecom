@@ -64,10 +64,12 @@
                                         data-original-title="Edit">
                                         <i class="zmdi zmdi-edit"></i>
                                     </button>
+                                    <a href="catagory/delete/{{$list->id}}">
                                     <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                         data-original-title="Delete">
                                         <i class="zmdi zmdi-delete"></i>
                                     </button>
+                                </a>
                                     <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                         data-original-title="More">
                                         <i class="zmdi zmdi-more"></i>

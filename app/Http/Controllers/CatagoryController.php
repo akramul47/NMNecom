@@ -88,8 +88,11 @@ class CatagoryController extends Controller
      * @param  \App\Models\Catagory  $catagory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Catagory $catagory)
+    public function delete($id)
+
     {
-        //
+        $catagory = Catagory::find($id);
+        $catagory->delete();
+        return redirect('admin/manage_category');
     }
 }
