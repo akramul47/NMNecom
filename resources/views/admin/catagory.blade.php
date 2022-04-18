@@ -33,14 +33,15 @@
                                             <h3 class="text-center title-2">Add category</h3>
                                         </div>
                                         <hr>
-                                        <form action="" method="post" novalidate="novalidate">
+                                        <form action="{{route('catagory.insert')}}" method="post" novalidate="novalidate">
+                                            @csrf
                                             <div class="form-group">
                                                 <label for="cc-payment" class="control-label mb-1">Category name</label>
-                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                                <input id="name" name="name" type="text" class="form-control" aria-required="true" aria-invalid="false">
                                             </div>
                                             <div class="form-group has-success">
                                                 <label for="cc-name" class="control-label mb-1">Category slug</label>
-                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
+                                                <input id="slug" name="slug" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                                                     autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
