@@ -43,6 +43,9 @@
                                                 <label for="cc-name" class="control-label mb-1">Category slug</label>
                                                 <input id="slug" name="slug" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                                                     autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                                    @error('slug')
+                                                        
+                                                    @enderror
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
                                             

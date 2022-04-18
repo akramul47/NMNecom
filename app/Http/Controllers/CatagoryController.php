@@ -24,7 +24,8 @@ class CatagoryController extends Controller
      */
     public function manage_category()
     {
-        return view('admin.manage_category');
+        $result['data'] = Catagory::all();
+        return view('admin.manage_category',$result);
     }
 
     /**

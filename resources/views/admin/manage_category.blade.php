@@ -47,10 +47,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $list )
+                            
+                       
                         <tr class="tr-shadow">
 
-                            <td>Lori Lynch</td>
-                            <td class="desc">Slug_Name</td>
+                            <td>{{$list->name}}</td>
+                            <td class="desc">{{$list->slug}}</td>
                             <td>
                                 <div class="table-data-feature">
                                     <button class="item" data-toggle="tooltip" data-placement="top" title=""
@@ -72,6 +75,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                         
                     </tbody>
                 </table>
