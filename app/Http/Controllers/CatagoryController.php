@@ -12,9 +12,20 @@ class CatagoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function category()
+    public function category(Request $request, $id='')
+    
     {
-        return view('admin.catagory');
+        if($id>0){
+            $arr = Catagory::where(['id' => $id])->get();
+            $result['name'] = $arr[0]->name;
+            $result['slug'] = $arr[0]->slug;
+            $result['id'] = $arr[0]->id;
+        }else{
+            $result['name'] = '';
+            $result['slug'] = '';
+            $result['id'] = 0;
+        }
+        return view('admin.catagory',$result);
     }
 
     /**
@@ -38,9 +49,16 @@ class CatagoryController extends Controller
     {
         $request->validate([
           'name' => 'required',
-          'slug' => 'required|unique:catagories',  
+          'slug' => 'required|unique:catagories,slug,'.$request->post('id'),  
         ]);
-        $catagory = new Catagory();
+        
+        if($request->post('id')>0){
+        $catagory = Catagory::find($request->post('id'));
+
+        }else{
+            $catagory = new Catagory();
+        }
+        
         $catagory->name = $request->post('name');
         $catagory->slug = $request->post('slug');
         $catagory->save();

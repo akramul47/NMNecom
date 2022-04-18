@@ -60,10 +60,11 @@
                                         data-original-title="Send">
                                         <i class="zmdi zmdi-mail-send"></i>
                                     </button>
+                                    <a href="catagory/{{$list->id}}">
                                     <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                         data-original-title="Edit">
                                         <i class="zmdi zmdi-edit"></i>
-                                    </button>
+                                    </button></a>
                                     <a href="catagory/delete/{{$list->id}}">
                                     <button class="item" data-toggle="tooltip" data-placement="top" title=""
                                         data-original-title="Delete">

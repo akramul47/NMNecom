@@ -17,7 +17,8 @@ use App\Http\Controllers\CatagoryController;
 Route::middleware(['middleware' => 'admin_auth'])->group(function () {
     Route::get('/admin/manage_category', [CatagoryController::class, 'manage_category']);
     Route::get('/admin/catagory', [CatagoryController::class, 'category']);
-    Route::post('/admin/catagory/insert',[CatagoryController::class,'manage_catagory_process'])->name('catagory.insert');\
+    Route::get('/admin/catagory/{id}', [CatagoryController::class, 'category']);
+    Route::post('/admin/catagory/insert',[CatagoryController::class,'manage_catagory_process'])->name('catagory.insert');
     Route::get('admin/catagory/delete/{id}',[CatagoryController::class,'delete']);
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', function(){
