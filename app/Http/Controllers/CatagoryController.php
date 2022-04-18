@@ -33,9 +33,18 @@ class CatagoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function manage_catagory_process(Request $request)
     {
-        //
+        $request->validate([
+          'name' => 'required',
+          'slug' => 'required|unique:catagories',  
+        ]);
+        $catagory = new Catagory();
+        $catagory->name = $request->post('name');
+        $catagory->slug = $request->post('slug');
+        $catagory->save();
+        $request->session()->flash('error','Category Added Sucessfully');
+        return redirect('admin/manage_category');
     }
 
     /**
